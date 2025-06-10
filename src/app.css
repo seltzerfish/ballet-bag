@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@plugin "daisyui";
+@plugin "tailwindcss-motion";
+
+body {
+  background-image: url('tulle-lg.webp');
+  background-size: cover;
+  min-height: 100vh;
+}
