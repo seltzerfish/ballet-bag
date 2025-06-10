@@ -5,7 +5,10 @@
 @plugin "tailwindcss-motion";
 
 body {
-  background-image: url('tulle-lg.webp');
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    url('tulle-lg.webp');
   background-size: cover;
+  
   min-height: 100vh;
 }

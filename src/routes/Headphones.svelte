@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { globals, SONGS } from '$lib/globals.svelte';
+	import { globals, changeSong } from '$lib/globals.svelte';
 	import { onMount } from 'svelte';
 
 	let justSpawned = $state(true);
@@ -12,7 +12,7 @@
 	});
 
 	const clickHeadphones = () => {
-		globals.songIndex = (globals.songIndex + 1) % SONGS.length;
+		changeSong();
 	};
 </script>
 
