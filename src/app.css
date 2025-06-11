@@ -3,7 +3,9 @@
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: cupcake, caramellatte, retro, valentine;
+}
 @plugin "tailwindcss-motion";
 
 body {
@@ -17,7 +19,7 @@ body {
 
 
 .pinyon-script-regular {
-  font-family: "Pinyon Script", cursive;
+  font-family: "Pinyon Script", "Brush Script MT", cursive;
   font-weight: 400;
   font-style: normal;
 }
