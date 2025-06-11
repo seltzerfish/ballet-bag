@@ -30,7 +30,7 @@ export const SONGS: Music[] = [
 export const globals = $state({
 	assetsLoaded: false,
 	songIndex: 0,
-	isMuted: false
+	isMuted: true
 });
 
 const audioInstances = new Set<HTMLAudioElement>();
