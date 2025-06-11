@@ -5,6 +5,13 @@ export type Music = {
 	url: string;
 };
 
+export const globals = $state({
+	userInteracted: false,
+	assetsLoaded: false,
+	songIndex: 0,
+	isMuted: true
+});
+
 export const SONGS: Music[] = [
 	{
 		title: 'Tchaikovsky: The Nutcracker, Op. 71, Act 2: No. 14a, Pas de deux. Andante maestoso',
@@ -26,12 +33,6 @@ export const SONGS: Music[] = [
 		url: 'albums/minkus.mp3'
 	}
 ];
-
-export const globals = $state({
-	assetsLoaded: false,
-	songIndex: 0,
-	isMuted: true
-});
 
 const audioInstances = new Set<HTMLAudioElement>();
 let currentAudio: HTMLAudioElement | null = null;
