@@ -1,11 +1,17 @@
 <script>
-	import { globals } from '$lib/globals.svelte';
+	import { globals, startIntroAnimation } from '$lib/globals.svelte';
 
 	let assetsToLoad = $state(0);
 	let assetsLoaded = $state(0);
 
 	$effect(() => {
 		preloadAssets();
+	});
+
+	$effect(() => {
+		if (globals.assetsLoaded && globals.animationPhase === 'loading') {
+			startIntroAnimation();
+		}
 	});
 
 	function preloadAssets() {

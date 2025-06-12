@@ -5,11 +5,20 @@ export type Music = {
 	url: string;
 };
 
+export type AnimationPhase =
+	| 'loading'
+	| 'ready'
+	| 'bag-enter'
+	| 'bag-pause'
+	| 'bag-exit-components-enter'
+	| 'complete';
+
 export const globals = $state({
 	userInteracted: false,
 	assetsLoaded: false,
 	songIndex: 0,
-	isMuted: true
+	isMuted: true,
+	animationPhase: 'loading' as AnimationPhase
 });
 
 export const SONGS: Music[] = [
@@ -81,6 +90,34 @@ export function toggleMute() {
 	[...domAudioElements, ...domVideoElements, ...audioInstances].forEach((element) => {
 		element.muted = globals.isMuted;
 	});
+}
+
+export function startIntroAnimation() {
+	if (globals.animationPhase !== 'loading') return;
+
+	globals.animationPhase = 'ready';
+
+	let currentDelay = 0;
+
+	currentDelay += 1000;
+	setTimeout(() => {
+		globals.animationPhase = 'bag-enter';
+	}, currentDelay);
+
+	currentDelay += 2300;
+	setTimeout(() => {
+		globals.animationPhase = 'bag-pause';
+	}, currentDelay);
+
+	currentDelay += 600;
+	setTimeout(() => {
+		globals.animationPhase = 'bag-exit-components-enter';
+	}, currentDelay);
+
+	currentDelay += 1000;
+	setTimeout(() => {
+		globals.animationPhase = 'complete';
+	}, currentDelay);
 }
 
 playSong(globals.songIndex);
