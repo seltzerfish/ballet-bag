@@ -52,41 +52,25 @@
 			}
 		}, 100);
 	}
+
+	let entering = $derived(globals.animationPhase === 'bag-exit-components-enter');
 </script>
 
 {#if globals.animationPhase === 'bag-exit-components-enter' || globals.animationPhase === 'complete'}
-	<div
-		class="journal-container"
-		class:animate-from-center={globals.animationPhase === 'bag-exit-components-enter'}
-		class:in-position={globals.animationPhase === 'complete'}
-	>
-		<button onclick={nextPage} disabled={isAnimating} class="clickable">
-			<img
-				src={frames[currentFrame]}
-				alt="Journal page {currentPage}"
-				class="h-full w-full object-contain"
-			/>
-		</button>
+	<div class="fixed top-0 right-6 h-[25rem] w-[30rem]">
+		<div
+			class:-motion-translate-x-in-100={entering}
+			class:motion-translate-y-in-100={entering}
+			class:motion-scale-in-0={entering}
+			class="motion-ease-spring-bouncier motion-duration-1000 motion-delay-[300ms]"
+		>
+			<button onclick={nextPage} disabled={isAnimating} class="clickable">
+				<img
+					src={frames[currentFrame]}
+					alt="Journal page {currentPage}"
+					class="h-full w-full object-contain"
+				/>
+			</button>
+		</div>
 	</div>
 {/if}
-
-<style>
-	.journal-container {
-		position: fixed;
-		bottom: 2rem;
-		left: 2rem;
-		width: 300px;
-		height: 400px;
-
-		transform: translate(calc(50vw - 50%), calc(-50vh + 50%)) scale(0);
-		transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-	}
-
-	.animate-from-center {
-		transform: translate(calc(50vw - 50%), calc(-50vh + 50%)) scale(0);
-	}
-
-	.in-position {
-		transform: translate(0, 0) scale(1);
-	}
-</style>

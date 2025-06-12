@@ -18,7 +18,8 @@ export const globals = $state({
 	assetsLoaded: false,
 	songIndex: 0,
 	isMuted: true,
-	animationPhase: 'loading' as AnimationPhase
+	animationPhase: 'loading' as AnimationPhase,
+	polaroidRecentlyClicked: false
 });
 
 export const SONGS: Music[] = [
@@ -99,7 +100,7 @@ export function startIntroAnimation() {
 
 	let currentDelay = 0;
 
-	currentDelay += 1000;
+	currentDelay += 300;
 	setTimeout(() => {
 		globals.animationPhase = 'bag-enter';
 	}, currentDelay);
@@ -114,7 +115,7 @@ export function startIntroAnimation() {
 		globals.animationPhase = 'bag-exit-components-enter';
 	}, currentDelay);
 
-	currentDelay += 2000;
+	currentDelay += 3000;
 	setTimeout(() => {
 		globals.animationPhase = 'complete';
 	}, currentDelay);

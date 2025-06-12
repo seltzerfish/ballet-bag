@@ -20,12 +20,11 @@ body {
 
 .pinyon-script-regular {
   font-family: "Pinyon Script", "Brush Script MT", cursive;
-  font-weight: 400;
   font-style: normal;
 }
 
 .clickable {
-  @apply transition-transform hover:scale-110 hover:cursor-pointer active:scale-100;
+  @apply transition-transform hover:scale-105 hover:cursor-pointer active:scale-100;
 }
 .clickable-rotate {
   @apply transition-transform hover:rotate-6 active:rotate-0;

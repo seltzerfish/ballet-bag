@@ -10,7 +10,7 @@
 		class:bag-exit={globals.animationPhase === 'bag-exit-components-enter'}
 	>
 		<div class="bag-container">
-			<img src="/bag.png" alt="Ballet bag" class="h-64 w-64 object-contain" />
+			<img src="/bag.png" alt="Ballet bag" class="h-[30rem] w-[30rem] object-contain" />
 		</div>
 	</div>
 {/if}
