@@ -13,8 +13,7 @@
 		class:motion-translate-x-in-100={entering}
 		class:motion-translate-y-in-100={entering}
 		class:motion-scale-in-0={entering}
-		class:in-position={globals.animationPhase === 'complete'}
-		class="motion-ease-spring-bouncier motion-duration-2000"
+		class="motion-ease-spring-bouncier motion-duration-1000"
 	>
 		<button onclick={clickHeadphones} class="clickable clickable-rotate p-9">
 			<img src="/headphones.png" alt="headphones" />
