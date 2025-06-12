@@ -4,18 +4,19 @@
 	const clickHeadphones = () => {
 		changeSong();
 	};
+
+	let entering = $derived(globals.animationPhase === 'bag-exit-components-enter');
 </script>
 
 {#if globals.animationPhase === 'bag-exit-components-enter' || globals.animationPhase === 'complete'}
 	<div
-		class="headphones-container"
-		class:animate-from-center={globals.animationPhase === 'bag-exit-components-enter'}
+		class:motion-translate-x-in-100={entering}
+		class:motion-translate-y-in-100={entering}
+		class:motion-scale-in-0={entering}
 		class:in-position={globals.animationPhase === 'complete'}
+		class="motion-ease-spring-bouncier motion-duration-2000"
 	>
-		<button
-			onclick={clickHeadphones}
-			class="p-9 transition-transform hover:scale-110 hover:rotate-6 hover:cursor-pointer active:scale-100 active:rotate-0"
-		>
+		<button onclick={clickHeadphones} class="clickable clickable-rotate p-9">
 			<img src="/headphones.png" alt="headphones" />
 		</button>
 	</div>

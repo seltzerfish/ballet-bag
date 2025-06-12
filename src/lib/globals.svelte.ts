@@ -114,7 +114,7 @@ export function startIntroAnimation() {
 		globals.animationPhase = 'bag-exit-components-enter';
 	}, currentDelay);
 
-	currentDelay += 1000;
+	currentDelay += 2000;
 	setTimeout(() => {
 		globals.animationPhase = 'complete';
 	}, currentDelay);

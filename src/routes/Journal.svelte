@@ -60,11 +60,11 @@
 		class:animate-from-center={globals.animationPhase === 'bag-exit-components-enter'}
 		class:in-position={globals.animationPhase === 'complete'}
 	>
-		<button onclick={nextPage} disabled={isAnimating}>
+		<button onclick={nextPage} disabled={isAnimating} class="clickable">
 			<img
 				src={frames[currentFrame]}
 				alt="Journal page {currentPage}"
-				class="h-full w-full cursor-pointer object-contain"
+				class="h-full w-full object-contain"
 			/>
 		</button>
 	</div>
