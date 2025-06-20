@@ -16,6 +16,9 @@
 		}, 1200);
 		currentPhoto = (currentPhoto + 1) % 5;
 		showCurrentPhoto = true;
+
+		const audio = new Audio('/polaroid.mp3');
+		audio.play().catch(console.error);
 	};
 </script>
 

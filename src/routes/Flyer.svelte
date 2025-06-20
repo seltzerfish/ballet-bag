@@ -20,6 +20,9 @@
 
 		if (targetFrame === currentFrame) return;
 
+		const audio = new Audio('/crumple.mp3');
+		audio.play().catch(() => {});
+
 		isAnimating = true;
 		animateToFrame(targetFrame, () => {
 			isCrumpled = !isCrumpled;

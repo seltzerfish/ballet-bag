@@ -34,6 +34,9 @@
 
 		if (targetFrame === currentFrame) return;
 
+		const audio = new Audio('/book.mp3');
+		audio.play().catch(() => {});
+
 		isAnimating = true;
 		animateToFrame(targetFrame, () => {
 			currentPage = nextPageIndex;

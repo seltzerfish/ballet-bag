@@ -59,7 +59,7 @@ export function playSong(i: number) {
 	const song = SONGS[i];
 	if (song) {
 		currentAudio = new Audio(song.url);
-		currentAudio.volume = 0.3;
+		currentAudio.volume = 0.2;
 		currentAudio.loop = true;
 		registerAudio(currentAudio);
 		currentAudio.play();

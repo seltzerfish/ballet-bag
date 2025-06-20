@@ -13,7 +13,7 @@
 			class:-motion-translate-x-in-100={entering}
 			class:-motion-translate-y-in-[40%]={entering}
 			class:motion-scale-in-0={entering}
-			class="motion-ease-spring-bouncier motion-duration-1000 motion-delay-[200ms] relative grayscale transition-all hover:grayscale-0"
+			class="motion-ease-spring-bouncier motion-duration-1000 motion-delay-[200ms] relative transition-all"
 		>
 			<div
 				class:translate-x-[1rem]={hovering}

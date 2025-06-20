@@ -135,7 +135,7 @@
 
 <style>
 	.skew.has-transition {
-		transition: transform 0.5s linear;
+		transition: transform 1.4s linear;
 	}
 
 	.modal-container {
