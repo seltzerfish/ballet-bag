@@ -3,7 +3,7 @@
 	import Bag from './Bag.svelte';
 	import Flyer from './Flyer.svelte';
 	import Headphones from './Headphones.svelte';
-	import Iphone from './Iphone.svelte';
+	import Ipad from './Ipad.svelte';
 	import Journal from './Journal.svelte';
 	import Loading from './Loading.svelte';
 	import MuteButton from './MuteButton.svelte';
@@ -18,6 +18,7 @@
 	<Bag />
 	<TitleText />
 	<Polaroid />
+	<Ipad />
 	<Flyer />
 	<WhiteFlash />
 {/if}

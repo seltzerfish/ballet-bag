@@ -2,14 +2,15 @@
 	import { globals } from '$lib/globals.svelte';
 	type Props = {
 		photo: number;
+		visible?: boolean;
 	};
-	let props: Props = $props();
+	let { photo, visible = $bindable() }: Props = $props();
 
 	const OFFSET_X = -2;
 	const OFFSET_Y = -35;
 
 	let hasTransition = $state(false);
-	let previousPhoto = $state(props.photo);
+	let previousPhoto = $state(photo);
 	let xOffset = $state(-OFFSET_X);
 	let yOffset = $state(OFFSET_Y);
 	let modalElement: HTMLDialogElement;
@@ -71,8 +72,8 @@
 	};
 
 	$effect(() => {
-		if (props.photo !== previousPhoto) {
-			previousPhoto = props.photo;
+		if (photo !== previousPhoto) {
+			previousPhoto = photo;
 
 			hasTransition = false;
 			xOffset = OFFSET_X;
@@ -89,6 +90,11 @@
 	const photoClicked = () => {
 		modalElement?.showModal();
 	};
+
+	const closeModal = () => {
+		modalElement?.close();
+		visible = false;
+	};
 </script>
 
 <div class="flex h-full w-full items-center justify-center">
@@ -100,7 +106,7 @@
 		>
 			<button onclick={photoClicked} class="clickable">
 				<img
-					src={`/polaroids/polaroid-${props.photo + 1}.png`}
+					src={`/polaroids/polaroid-${photo + 1}.png`}
 					alt="printed polaroid"
 					class="h-full w-full object-contain"
 				/>
@@ -109,7 +115,7 @@
 	</div>
 </div>
 
-<dialog bind:this={modalElement} class="modal" onclick={() => modalElement?.close()}>
+<dialog bind:this={modalElement} class="modal" onclick={closeModal}>
 	<div class="modal-container h-2/3 w-fit">
 		<div
 			bind:this={polaroidElement}
@@ -118,7 +124,7 @@
 			onmouseleave={handleMouseLeave}
 		>
 			<img
-				src={`/polaroids/polaroid-${props.photo + 1}.png`}
+				src={`/polaroids/polaroid-${photo + 1}.png`}
 				alt="printed polaroid"
 				class="h-full w-full object-contain"
 			/>

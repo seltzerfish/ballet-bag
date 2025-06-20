@@ -2,16 +2,20 @@
 	import { globals } from '$lib/globals.svelte';
 	import PolaroidPhoto from './PolaroidPhoto.svelte';
 
+	let clickedOnce = $state(false);
 	let entering = $derived(globals.animationPhase === 'bag-exit-components-enter');
 	let currentPhoto = $state(0);
+	let showCurrentPhoto = $state(false);
 
 	const clickPolaroid = () => {
+		clickedOnce = true;
 		if (globals.polaroidRecentlyClicked) return;
 		globals.polaroidRecentlyClicked = true;
 		setTimeout(() => {
 			globals.polaroidRecentlyClicked = false;
 		}, 1200);
 		currentPhoto = (currentPhoto + 1) % 5;
+		showCurrentPhoto = true;
 	};
 </script>
 
@@ -24,8 +28,8 @@
 			class:motion-scale-in-0={entering}
 			class=" motion-ease-spring-bouncier motion-duration-1000 motion-delay-[100ms] relative"
 		>
-			<div class="absolute inset-0">
-				<PolaroidPhoto photo={currentPhoto} />
+			<div class="absolute inset-0" class:hidden={!clickedOnce || !showCurrentPhoto}>
+				<PolaroidPhoto photo={currentPhoto} bind:visible={showCurrentPhoto} />
 			</div>
 			<button onclick={clickPolaroid} class="clickable absolute inset-0 p-9">
 				<img src="/polaroid.png" alt="polaroid" />
