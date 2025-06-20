@@ -8,11 +8,18 @@
 }
 @plugin "tailwindcss-motion";
 
+:root {
+  --bg-x: 0px;
+  --bg-y: 0px;
+}
+
 body {
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
     url('/tulle-lg.webp');
   background-size: cover;
+  background-position: calc(50% + var(--bg-x)) calc(50% + var(--bg-y));
+  transition: background-position 0.5s ease-out;
   
   min-height: 100vh;
 }

@@ -4,9 +4,10 @@
 
 {#if globals.animationPhase !== 'loading' && globals.animationPhase !== 'complete'}
 	<div
-		class="pointer-events-none fixed inset-0 flex items-center justify-center"
+		class="pointer-events-none fixed inset-0 z-50 flex items-center justify-center"
 		class:bag-enter={globals.animationPhase === 'bag-enter'}
 		class:bag-pause={globals.animationPhase === 'bag-pause'}
+		class:bag-exit-pause={globals.animationPhase === 'bag-exit-pause'}
 		class:bag-exit={globals.animationPhase === 'bag-exit-components-enter'}
 	>
 		<div class="bag-container">
@@ -26,6 +27,10 @@
 	}
 
 	.bag-pause .bag-container {
+		transform: translateY(0);
+	}
+
+	.bag-exit-pause .bag-container {
 		transform: translateY(0);
 	}
 

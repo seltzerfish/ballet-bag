@@ -7,8 +7,14 @@
 	let {
 		style,
 		images,
-		autoScroll = true
-	}: { style: CarouselStyle; images: Image[]; autoScroll?: boolean } = $props();
+		autoScroll = true,
+		onMount: onMountCallback
+	}: {
+		style: CarouselStyle;
+		images: Image[];
+		autoScroll?: boolean;
+		onMount?: (methods: any) => void;
+	} = $props();
 
 	let carouselContainer: HTMLDivElement | null = $state(null);
 
@@ -25,6 +31,13 @@
 	};
 
 	onMount(() => {
+		if (onMountCallback) {
+			onMountCallback({
+				incrementSlide,
+				decrementSlide,
+				scrollToSlide
+			});
+		}
 		if (autoScroll) {
 			setInterval(() => {
 				// TODO: do this manually
@@ -52,8 +65,8 @@
 	<div class="relative h-full w-full overflow-hidden">
 		<div bind:this={carouselContainer} class="carousel carousel-center h-full">
 			{#each images as image, index}
-				<div class="carousel-item h-full flex-none">
-					<img src={image.url} alt={image.alt} class="h-full object-cover" />
+				<div class="carousel-item h-full w-full flex-none">
+					<img src={image.url} alt={image.alt} class="h-full w-full object-contain" />
 				</div>
 			{/each}
 		</div>

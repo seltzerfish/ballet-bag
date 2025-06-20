@@ -39,10 +39,10 @@
 		}, 100);
 	}
 
-	let entering = $derived(globals.animationPhase === 'bag-exit-components-enter');
+	let entering = $derived(globals.animationPhase === 'bag-exit-pause');
 </script>
 
-{#if globals.animationPhase === 'bag-exit-components-enter' || globals.animationPhase === 'complete'}
+{#if globals.animationPhase === 'bag-exit-pause' || globals.animationPhase === 'bag-exit-components-enter' || globals.animationPhase === 'complete'}
 	<div class="fixed top-6 left-12 h-[20rem] w-[23rem]">
 		<div
 			class:motion-translate-x-in-100={entering}

@@ -10,6 +10,7 @@ export type AnimationPhase =
 	| 'ready'
 	| 'bag-enter'
 	| 'bag-pause'
+	| 'bag-exit-pause'
 	| 'bag-exit-components-enter'
 	| 'complete';
 
@@ -19,7 +20,8 @@ export const globals = $state({
 	songIndex: 0,
 	isMuted: true,
 	animationPhase: 'loading' as AnimationPhase,
-	polaroidRecentlyClicked: false
+	polaroidRecentlyClicked: false,
+	usingStamp: false
 });
 
 export const SONGS: Music[] = [
@@ -105,12 +107,17 @@ export function startIntroAnimation() {
 		globals.animationPhase = 'bag-enter';
 	}, currentDelay);
 
-	currentDelay += 2300;
+	currentDelay += 1200;
 	setTimeout(() => {
 		globals.animationPhase = 'bag-pause';
 	}, currentDelay);
 
 	currentDelay += 600;
+	setTimeout(() => {
+		globals.animationPhase = 'bag-exit-pause';
+	}, currentDelay);
+
+	currentDelay += 2000;
 	setTimeout(() => {
 		globals.animationPhase = 'bag-exit-components-enter';
 	}, currentDelay);

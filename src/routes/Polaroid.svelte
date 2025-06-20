@@ -3,7 +3,7 @@
 	import PolaroidPhoto from './PolaroidPhoto.svelte';
 
 	let clickedOnce = $state(false);
-	let entering = $derived(globals.animationPhase === 'bag-exit-components-enter');
+	let entering = $derived(globals.animationPhase === 'bag-exit-pause');
 	let currentPhoto = $state(0);
 	let showCurrentPhoto = $state(false);
 
@@ -19,7 +19,7 @@
 	};
 </script>
 
-{#if globals.animationPhase === 'bag-exit-components-enter' || globals.animationPhase === 'complete'}
+{#if globals.animationPhase === 'bag-exit-pause' || globals.animationPhase === 'bag-exit-components-enter' || globals.animationPhase === 'complete'}
 	<div
 		class="fixed top-0 left-[35%] h-[20rem] w-[20rem]"
 		class:motion-translate-y-in-[500%]={entering}

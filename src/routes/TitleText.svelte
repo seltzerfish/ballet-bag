@@ -4,10 +4,10 @@
 </script>
 
 {#if globals.animationPhase === 'complete'}
-	<!-- <div
+	<div
 		transition:fade
-		class="pointer-events-none fixed inset-0 flex h-full w-full items-center justify-center font-bold"
+		class="pointer-events-none fixed top-1/2 left-1/2 -translate-x-3/4 -translate-y-[12rem] -rotate-10 font-bold"
 	>
 		<h1 class="pinyon-script-regular text-6xl">What's in my ballet bag?</h1>
-	</div> -->
+	</div>
 {/if}
